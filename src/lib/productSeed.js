@@ -1,0 +1,151 @@
+import { slugify } from './formatters';
+
+const seed = [
+  {
+    name: 'Royal Oud',
+    price: 3500,
+    size: '100 ML',
+    category: 'Middle Eastern',
+    subcategory: 'Royal Oud Collection',
+    badge: 'Bestseller',
+    description: 'Cambodian oud, Kashmiri saffron, and pure sandalwood composed for ceremonial evening wear.',
+    notes: ['Saffron', 'Cambodian Oud', 'Sandalwood'],
+    room: 'Arabian Collection',
+    mood: 'Ceremonial evenings',
+    asset: '/media/bottles/bottle-type-04.png',
+    bottleTone: 'glass'
+  },
+  {
+    name: 'Hindi Oud',
+    price: 4200,
+    size: '100 ML',
+    category: 'Indian Heritage',
+    subcategory: 'Royal Oud Collection',
+    badge: 'Kannauj Reserve',
+    description: 'Deep Hindi oud softened with vetiver smoke, rose absolute, and burnished amber.',
+    notes: ['Hindi Oud', 'Vetiver Smoke', 'Rose Absolute'],
+    room: 'Indian Heritage',
+    mood: 'Heritage occasions',
+    asset: '/media/bottles/bottle-type-08.png',
+    bottleTone: 'black'
+  },
+  {
+    name: 'Amber Oud',
+    price: 3900,
+    size: '100 ML',
+    category: 'Middle Eastern',
+    subcategory: 'Royal Oud Collection',
+    badge: 'Warm Luxury',
+    description: 'A glowing oud profile wrapped in amber resin, vanilla pod, and dry cedar.',
+    notes: ['Amber Resin', 'Oud Wood', 'Cedar'],
+    room: 'Arabian Collection',
+    mood: 'Signature gifting',
+    asset: '/media/bottles/bottle-type-10.png',
+    bottleTone: 'black'
+  },
+  {
+    name: 'Kannauj Rose',
+    price: 2500,
+    size: '12 ML Attar',
+    category: 'Indian Heritage',
+    subcategory: 'Floral Heritage',
+    badge: 'Heritage',
+    description: 'A traditional copper-deg rose attar with velvet musk and golden amber.',
+    notes: ['Rosewater', 'Damask Rose', 'Velvet Musk'],
+    room: 'Indian Heritage',
+    mood: 'Day ceremonies',
+    asset: '/media/bottles/bottle-type-07.png',
+    bottleTone: 'glass'
+  },
+  {
+    name: 'Saffron Dawn',
+    price: 3800,
+    size: '50 ML',
+    category: 'Middle Eastern',
+    subcategory: 'Traditional Attars',
+    badge: 'Signature',
+    description: 'Crimson saffron, night jasmine, warm amber, and Madagascar vanilla.',
+    notes: ['Bergamot', 'Saffron', 'Amber'],
+    room: 'Global Collection',
+    mood: 'Morning luxury',
+    asset: '/media/bottles/bottle-type-02.png',
+    bottleTone: 'glass'
+  },
+  {
+    name: 'Velvet Jasmine',
+    price: 2800,
+    size: '50 ML',
+    category: 'Floral',
+    subcategory: 'Floral Heritage',
+    badge: 'Soft Floral',
+    description: 'Night jasmine and pearled musk with a polished sandalwood drydown.',
+    notes: ['Jasmine', 'Pearled Musk', 'Sandalwood'],
+    room: 'Indian Heritage',
+    mood: 'Intimate celebrations',
+    asset: '/media/bottles/bottle-type-05.png',
+    bottleTone: 'glass'
+  },
+  {
+    name: 'Noir Musk',
+    price: 3200,
+    size: '75 ML',
+    category: 'Luxury',
+    subcategory: 'Evening Signatures',
+    badge: 'Noir',
+    description: 'Dark musk, smoked vanilla, and amber woods shaped for black-tie evenings.',
+    notes: ['Dark Musk', 'Smoked Vanilla', 'Amber Woods'],
+    room: 'Global Collection',
+    mood: 'Evening signature',
+    asset: '/media/bottles/bottle-type-06.png',
+    bottleTone: 'black'
+  },
+  {
+    name: 'Crystal Vetiver',
+    price: 3000,
+    size: '50 ML',
+    category: 'Fresh',
+    subcategory: 'Modern Fresh',
+    badge: 'Fresh',
+    description: 'Clean vetiver, bergamot peel, and mineral musk with a polished transparent trail.',
+    notes: ['Vetiver', 'Bergamot', 'Mineral Musk'],
+    room: 'Global Collection',
+    mood: 'Day clarity',
+    asset: '/media/bottles/bottle-type-01.png',
+    bottleTone: 'glass'
+  },
+  {
+    name: 'Emerald Leather',
+    price: 4100,
+    size: '100 ML',
+    category: 'Luxury',
+    subcategory: 'Collector Editions',
+    badge: 'Collector',
+    description: 'Green leather, smoked cedar, and resinous labdanum for a composed luxury profile.',
+    notes: ['Green Leather', 'Cedar', 'Labdanum'],
+    room: 'Global Collection',
+    mood: 'Collector evenings',
+    asset: '/media/bottles/bottle-type-09.png',
+    bottleTone: 'black'
+  },
+  {
+    name: 'Marble Saffron',
+    price: 4500,
+    size: '100 ML',
+    category: 'Arabian',
+    subcategory: 'Royal Oud Collection',
+    badge: 'Limited',
+    description: 'Golden saffron, dry oud, and polished stone accord in a limited ceremonial blend.',
+    notes: ['Golden Saffron', 'Dry Oud', 'Stone Accord'],
+    room: 'Arabian Collection',
+    mood: 'Limited gifting',
+    asset: '/media/bottles/bottle-type-03.png',
+    bottleTone: 'black'
+  }
+];
+
+export const productSeed = seed.map((product, index) => ({
+  id: slugify(product.name),
+  slug: slugify(product.name),
+  sortOrder: index + 1,
+  ...product
+}));
